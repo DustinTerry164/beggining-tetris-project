@@ -1,4 +1,5 @@
 import pygame.image
+global score
 score = 0
 red_cube = pygame.image.load("red_cube.png")
 blue_cube = pygame.image.load("blue_cube.png")
@@ -29,10 +30,12 @@ def shift_rows(row):
                 current_row -=1
 
 def check_changes():
+       global  score
        for y in range(len(grid)):
            count = 0
            for x in range(len(grid[y])):
                  if grid[y][x] != 0:
                      count += 1
                      if(count == 10):
+                       score += 10
                        shift_rows(y)
