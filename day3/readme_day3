@@ -1,2 +1,2 @@
-day 3 I have Implemented left/right movement, an update clock so the game doesn't make updates too quickly, down movement,
-and finnally piece placing functionality
+day 3 I have Implemented left/right movement, an update clock so the game doesn't make updates too quickly, down movement, fought and fixed a bug that liked to
+cut off the bottom pieces of my falling puzzle pieces and finnally implemented piece placing functionality.
