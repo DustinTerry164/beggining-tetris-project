@@ -32,6 +32,7 @@ def prepare_game():
     level = 1
     progress = 0
     score = 0
+    updating_grid.target_speed = 0.05
 def reset_game():
     global  game_over
     for y in range(len(passive_grid)):
