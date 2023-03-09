@@ -14,3 +14,6 @@ Assuming that whoever opens this has the PyCharm IDE installed. To simply run th
 file>settings>project>python interpreter> then click the plus to add the pygame package. From there it should be as simple as clicking and 
 dragging all the files into the project folder and running it from the main.py file(everything you need should be in the day 6 folder)
 
+controls:
+arrow keys to move the piece
+c and v to rotate your piece
