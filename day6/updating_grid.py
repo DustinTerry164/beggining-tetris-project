@@ -42,6 +42,7 @@ def reset_piece():
     piece_pos_x = 4
 
 
+
 def increase_drop_speed():
     global  falling_speed
     falling_speed = drop_speed + target_speed
