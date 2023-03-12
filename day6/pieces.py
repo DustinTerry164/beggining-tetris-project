@@ -119,6 +119,7 @@ def set_piece_target(wanted_piece):
     if (wanted_piece == "S_piece"): max_rotation = 1
     if (wanted_piece == "Z_piece"): max_rotation = 1
     if (wanted_piece == "Cube_piece"): max_rotation = 1
+    randomized_piece()
 
 
 
