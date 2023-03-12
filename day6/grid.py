@@ -57,17 +57,25 @@ def test_ground_collision():
         place_piece()
 
 
+
 def test_verticle_collision():
+    exit_y_loop = False
     for y in range(len(passive_grid)):
+        if exit_y_loop:
+            break #ensures that the place piece function only gets called once
+
+
         for x in range(len(passive_grid[y])): #check if a piece is above a placed piece
             if passive_grid[y][x] >= 1 and updating_grid.active_grid[y+3][x] >= 1:
                 place_piece()
+                exit_y_loop = True
+                break#ensures that the place piece function only gets called once
 
 
 def test_piece_collision(): #this function is called to test the collision of the pieces
     test_horizontal_collision()
-    test_ground_collision()
     test_verticle_collision()
+    test_ground_collision()
 
 
 def place_piece():
@@ -76,8 +84,10 @@ def place_piece():
             if(y - 4>= 0): #prevent out of bounds exception
                 if(passive_grid[y-4][x] == 0):
                     passive_grid[y-4][x] = updating_grid.active_grid[y][x] #copies the entire active grid to the passive grid
+
     updating_grid.reset_piece()
     pieces.set_piece_target(pieces.next_piece)
+
 
 
 
@@ -111,7 +121,6 @@ def check_changes():
        test_death()
        updating_grid.update_grid(pieces.get_current_piece())
        test_piece_collision()
-       if (updating_grid.piece_pos_y == 0): pieces.randomized_piece()  # when the piece gets reset randomize the next piece
        updating_grid.check_movement()
        detect_full_line()
 
