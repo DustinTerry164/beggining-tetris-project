@@ -78,7 +78,8 @@ def randomized_piece():
     global next_piece
     random_value = random.randrange(0,7,1)
     next_piece = piece_list_names[random_value]
-    if (random_value == 6 or random_value == 5): next_piece = piece_list_names[random_value]
+    if (random_value == 6 or random_value == 5):
+        if(random.randrange(0,2,1)==0): next_piece = piece_list_names[random.randrange(0,7,1)]
 
 def rotate(direction):
     global  piece_rotation, max_rotation
