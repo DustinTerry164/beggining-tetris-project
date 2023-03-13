@@ -116,4 +116,4 @@ def update_piece():
 
 def get_current_piece():
     global current_piece
-    return current_p
+    return current_piece
