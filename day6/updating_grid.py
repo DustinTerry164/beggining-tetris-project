@@ -62,10 +62,9 @@ def  update_grid(piece):
         for piece_width in range(len(piece[piece_height])):#cycle through the width of the piece
 
             if  int(piece_pos_x) + piece_width < 10 and  not int(piece_pos_x) + piece_width < 0: #only add the block to the grid if its fully on the grid
-                try:
-                    active_grid[int(piece_pos_y) + piece_height][int(piece_pos_x) + piece_width] = piece[piece_height][piece_width]  # add piece to the active grid
-                except IndexError:
-                    return 0
+
+                active_grid[int(piece_pos_y) + piece_height][int(piece_pos_x) + piece_width] = piece[piece_height][piece_width]  # add piece to the active grid
+
 
             test_sidewall_collision(piece_width)
 
