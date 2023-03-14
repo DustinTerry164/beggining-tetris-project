@@ -80,6 +80,7 @@ def test_piece_collision(): #this function is called to test the collision of th
 
 
 def place_piece():
+
     for y in range(len(updating_grid.active_grid)):
         for x in range(len(updating_grid.active_grid[y])):
             if(y - 4>= 0): #prevent out of bounds exception

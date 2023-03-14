@@ -23,7 +23,9 @@ T_piece =\
 Cube_piece=\
     [[0],
     [0,3,3,0],
-     [0,3,3,0]],[]
+     [0,3,3,0]],[[0],
+    [0,3,3,0],
+     [0,3,3,0]]
 L_piece=\
     [[0,1,1,0],
      [0,0,1,0],
@@ -71,7 +73,7 @@ next_piece = "Cube_piece"
 piece_list_names = ["Long_piece","T_piece","Cube_piece","L_piece","RL_piece","S_piece","Z_piece"]
 piece_list_object = [Long_piece,T_piece,Cube_piece,L_piece,RL_piece,S_piece,Z_piece]
 piece_rotation = 0 #determines rotation of piece
-max_rotation = 3 #determines how many times a piece can rotate
+max_rotation = 1 #determines how many times a piece can rotate
 current_piece = Long_piece[0]
 
 def randomized_piece():
@@ -93,26 +95,18 @@ def rotate(direction):
         piece_rotation = 0
 
 def set_piece_target(wanted_piece):
-    global piece_rotation
+    global piece_rotation,target_piece
     piece_rotation = 0
-    global target_piece,max_rotation
     target_piece = wanted_piece
-
-    if(wanted_piece == "T_piece"): max_rotation = 3
-    if (wanted_piece == "Long_piece"): max_rotation = 1
-    if (wanted_piece == "L_piece"): max_rotation = 3
-    if (wanted_piece == "RL_piece"): max_rotation = 3
-    if (wanted_piece == "S_piece"): max_rotation = 1
-    if (wanted_piece == "Z_piece"): max_rotation = 1
-    if (wanted_piece == "Cube_piece"): max_rotation = 0
     randomized_piece()
 
 def update_piece():
-    global  current_piece
+    global  current_piece,max_rotation
 
-    for x in range(len(piece_list_names)):
-        if(target_piece == piece_list_names[x]):
-            current_piece = piece_list_object[x][piece_rotation]
+    for piece_number in range(len(piece_list_names)):
+        if(target_piece == piece_list_names[piece_number]):
+            max_rotation = len(piece_list_object[piece_number])-1
+            current_piece = piece_list_object[piece_number][piece_rotation]
             break
 
 def get_current_piece():
